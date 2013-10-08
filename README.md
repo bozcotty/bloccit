@@ -1,4 +1,5 @@
-#Bloccit
+#Hale-Bloccit
+#http://hale-bloccit.herokuapp.com/
 
 A Reddit-style application to demonstrate foundation programming and web development skills.
 
