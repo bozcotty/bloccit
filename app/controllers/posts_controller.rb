@@ -13,8 +13,35 @@ class PostsController < ApplicationController
   end
 
   def new
+    @post = Post.new
+  end
+
+  #adding a create method to posts_controller.rb
+  def create
+    @post = Post.new(params[:post])
+    #rem: raise -method -this will short-circuit the method, for testing purposes if needed
+    if @post.save #.save is an AR method that updates the DB
+      flash[:notice] = "Post was saved."
+      redirect_to @post
+    else
+      flash[:error] = "There was an error saving the post. Please try again."
+      render :new
+    end
   end
 
   def edit
+    @post = Post.find(params[:id])
   end
+
+  def update
+    @post = Post.find(params[:id])
+    if @post.update_attributes(params[:post])
+      flash[:notice] = "Post was updated."
+      redirect_to @post
+    else
+      flash[:error] = "There was an error saving the post. Please try again."
+      render :new
+    end
+  end
+
 end
