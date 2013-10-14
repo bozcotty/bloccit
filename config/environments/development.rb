@@ -34,4 +34,9 @@ Bloccit::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  #these 3 below added in Bloc lesson 4.1 User Authentication
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
 end

@@ -42,6 +42,9 @@ module Bloccit
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"
 
+    #    This was added in Bloc lesson 4.1 User Authentication
+    config.assets.initialize_on_precompile = false
+
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
 

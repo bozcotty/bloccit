@@ -1,0 +1,16 @@
+#this is a clone file of setup_mail.rb
+#without the sensitive u-name-pword info
+#that can go into git, where setup_mail.rb doesn't
+
+if Rails.env.development?
+  ActionMailer::Base.delivery_method = :smtp
+  ActionMailer::Base.smtp_settings = {
+    :address        => 'smtp.sendgrid.net',
+    :port           => '587',
+    :authentication => :plain,
+    :user_name      => "put-it-here",
+    :password       => "put-it-here",
+    :domain         => 'heroku.com',
+    :enable_starttls_auto => true
+  }
+end
