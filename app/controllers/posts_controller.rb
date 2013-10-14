@@ -18,6 +18,7 @@ class PostsController < ApplicationController
 
   #adding a create method to posts_controller.rb
   def create
+    post = current_user.posts.build(params[:post])
     raise (params[:post]).to_s
     @post = Post.new(params[:post])
     #rem: raise -method -this will short-circuit the method, for testing purposes if needed
