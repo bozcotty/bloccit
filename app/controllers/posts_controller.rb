@@ -40,6 +40,7 @@ class PostsController < ApplicationController
   end
 
   def update
+    raise params[:post].to_s
     @post = Post.find(params[:id])
     authorize! :update, @post, message: "You need to own the post to edit it."
     if @post.update_attributes(params[:post])

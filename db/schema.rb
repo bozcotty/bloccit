@@ -30,6 +30,8 @@ ActiveRecord::Schema.define(:version => 20131015201201) do
     t.integer  "user_id"
   end
 
+  add_index "posts", ["user_id"], :name => "index_posts_on_user_id"
+
   create_table "users", :force => true do |t|
     t.string   "name"
     t.string   "email",                  :default => "", :null => false
