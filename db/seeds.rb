@@ -24,9 +24,10 @@ rand(4..10).times do
   end
 end
 
-u = User.first
-u.skip_reconfirmation!
-u.update_attributes(email: 'shalemont@gmail.com', password: 'helloworld', password_confirmation: 'helloworld')
+u = User.new(name: 'Scott Hale', email: 'shalemont@gmail.com', password: 'helloworld', password_confirmation: 'helloworld')
+u.skip_confirmation!
+u.save
+u.update_attribute(:role, 'admin')
 
 puts "Seed finished"
 puts "#{User.count} users created"
