@@ -19,8 +19,7 @@ class PostsController < ApplicationController
 
   #adding a create method to posts_controller.rb
   def create
-    post = current_user.posts.build(params[:post])
-    @post = Post.new(params[:post])
+    @post = current_user.posts.build(params[:post])
     #rem: raise -method -this will short-circuit the method, for testing purposes if needed
     authorize! :create, @post, message: "You need to be signed up to do that."
     if @post.save #.save is an AR method that updates the DB
@@ -40,7 +39,7 @@ class PostsController < ApplicationController
   end
 
   def update
-    raise params[:post].to_s
+    
     @post = Post.find(params[:id])
     authorize! :update, @post, message: "You need to own the post to edit it."
     if @post.update_attributes(params[:post])
