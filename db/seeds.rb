@@ -30,7 +30,7 @@ rand(4..10).times do
 
     topics.rotate! #add this line to move the first topic to the last, so that posts get assigned to different topics
 
-    
+
     rand(3..7).times do
       p.comments.create(
         body: Faker::Lorem.paragraphs(rand(1..2)).join("\n"))
@@ -42,6 +42,34 @@ u = User.new(name: 'Scott Hale', email: 'shalemont@gmail.com', password: 'hellow
 u.skip_confirmation!
 u.save
 u.update_attribute(:role, 'admin')
+
+u = User.new(
+  name: 'Admin User',
+  email: 'admin@example.com', 
+  password: 'helloworld', 
+  password_confirmation: 'helloworld')
+u.skip_confirmation!
+u.save
+u.update_attribute(:role, 'admin')
+
+u = User.new(
+  name: 'Moderator User',
+  email: 'moderator@example.com', 
+  password: 'helloworld', 
+  password_confirmation: 'helloworld')
+u.skip_confirmation!
+u.save
+u.update_attribute(:role, 'moderator')
+
+u = User.new(
+  name: 'Member User',
+  email: 'member@example.com', 
+  password: 'helloworld', 
+  password_confirmation: 'helloworld')
+u.skip_confirmation!
+u.save
+
+
 
 puts "Seed finished"
 puts "#{User.count} users created"
