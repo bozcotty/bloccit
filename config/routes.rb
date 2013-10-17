@@ -1,8 +1,12 @@
 Bloccit::Application.routes.draw do
   
+  
+
   devise_for :users
 
-  resources :posts
+  resources :topics do
+    resources :posts, except: [:index]
+  end
 
   match "about" => 'welcome#about', via: :get #made the about route more clean by 
   #writing this line but needs explanation
