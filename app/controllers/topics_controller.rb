@@ -21,7 +21,7 @@ class TopicsController < ApplicationController
   def create
     @topic = Topic.new(params[:topic])
     #same as above line: @topic = Topic.new(name: 'new topic', description: 'this is a new topic')
-    authorize :create, @topic, message: "You need to be an admin to do that."
+    authorize! :create, @topic, message: "You need to be an admin to do that."
     if @topic.save
       flash[:notice] = "Topic was saved successfully."
       redirect_to @topic
