@@ -8,6 +8,13 @@
       <%= @post.user.name %>
     </small> 
     <p><%= markdown @post.body %></p>
+
+    <small>
+      <%= image_tag(@post.post_images.url) if @post.post_images? %>
+      submitted <%= time_ago_in_words(@post.created_at) %> ago by 
+      <%= @post.user.name %>
+    </small>
+
   </div>
   <div class="span4">
     <% if can? :edit, @post %>
