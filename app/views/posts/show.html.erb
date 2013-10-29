@@ -11,8 +11,7 @@
 
     <small>
       <%= image_tag(@post.post_images.url) if @post.post_images? %>
-      submitted <%= time_ago_in_words(@post.created_at) %> ago by 
-      <%= @post.user.name %>
+      
     </small>
 
   </div>
@@ -22,4 +21,29 @@
     <%end%>
   </div>
 </div>
+
+<!-- show comments listed under the post -->
+<!-- styles 'from' show topics -->
+
+<%# @comments.each do |comment| %>
+  <%#= render partial: 'comments/comment', local: {comment: comment} %>
+<%# end %>
+
+<% @comments.each do |comment| %>
+  <%= render comment %>
+<% end %>
+
+<%#= render partial: 'comments/comment', collection: @comments %>
+
+<%#= render @comments %>
+
+<!-- endof show comments -->
+
+  <div class="span4">
+    <% if can? :create, @comment %>
+      <%#= link_to "New Comment", new_topic_post_comment_path(@topic, @post), class: 'btn btn-large btn-block' %>
+    <%= render partial: "comments/form", locals: { topic: @topic,post: @post, comment: Comment.new } %>
+
+    <%end%>
+  </div>
 
