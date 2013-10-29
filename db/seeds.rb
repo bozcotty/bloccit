@@ -32,8 +32,9 @@ end
 
 
     rand(3..7).times do
-      p.comments.create(
+      c = u.comments.create(
         body: Faker::Lorem.paragraphs(rand(1..2)).join("\n"))
+      c.update_attribute(:post, p)
     end
   end
 end

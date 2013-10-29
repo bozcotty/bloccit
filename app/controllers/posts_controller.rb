@@ -7,7 +7,8 @@ class PostsController < ApplicationController
     #as an argument. Rails has a params hash that is passed around on every request
     #rem params is a hash, thats why you can extract a value by specifying the key 
     # key: id , in this case
-   
+    @comments = @post.comments
+
   end
 
   def new
