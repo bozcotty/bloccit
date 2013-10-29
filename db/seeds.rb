@@ -19,7 +19,7 @@ end
   u.skip_confirmation!
   u.save
 
-  30.times do
+  rand(20..35).times do
     topic = topics.first #getting the first topic here
     p = u.posts.create(
       topic: topic,
@@ -35,6 +35,7 @@ end
       c = u.comments.create(
         body: Faker::Lorem.paragraphs(rand(1..2)).join("\n"))
       c.update_attribute(:post, p)
+
     end
   end
 end

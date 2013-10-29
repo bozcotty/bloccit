@@ -33,7 +33,7 @@ class TopicsController < ApplicationController
 
   def update
     @topic = Topic.find(params[:id])
-    authorize :update, @topic, message: "You need to own the topic to update it."
+    authorize! :update, @topic, message: "You need to own the topic to update it."
     if @topic.update_attributes(params[:topic])
       redirect_to @topic, notice: "Topic was saved successfully."
     else 
@@ -41,4 +41,18 @@ class TopicsController < ApplicationController
       render :edit
     end
   end
+
+  def destroy
+    @topic = Topic.find(params[:id])
+    name = @topic.name
+    authorize! :destroy, @topic, message: "You need to own the topic to delete it."
+    if @topic.destroy
+      flash[:notice] = "\"#{name}\" was deleted successfully."
+      redirect_to topics_path
+    else 
+      flash[:error] = "There was an error deleting the topic."
+      render :show
+    end
+  end
+
 end
