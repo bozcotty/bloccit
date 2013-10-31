@@ -8,5 +8,5 @@ production:
   AWS_BUCKET:
 
 #facebook
-App ID: 
-App Secret:
+FACEBOOK_ID: 
+FACEBOOK_SECRET:
