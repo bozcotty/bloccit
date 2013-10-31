@@ -6,3 +6,7 @@ development:
   AWS_BUCKET:
 production:
   AWS_BUCKET:
+
+#facebook
+App ID: 
+App Secret:

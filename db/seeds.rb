@@ -31,16 +31,21 @@ end
     topics.rotate! #add this line to move the first topic to the last, so that posts get assigned to different topics
 
 
-    rand(3..7).times do
-      c = u.comments.create(
-        body: Faker::Lorem.paragraphs(rand(1..2)).join("\n"))
-      c.update_attribute(:post, p)
-
-    end
+    
   end
 end
 
-u = User.new(name: 'Scott Hale', email: 'shalemont@gmail.com', password: 'helloworld', password_confirmation: 'helloworld')
+User.all.each do |u|
+  rand(10..20).times do
+    p = Post.find(rand(1..Post.count))
+    c = u.comments.create(
+      body: Faker::Lorem.paragraphs(rand(1..2)).join("\n"))
+    c.post = p
+    c.update_attribute(:created_at, Time.now - rand(600..31536000))
+  end
+end
+
+u = User.new(name: 'Scott Hale', email: 'scotthale12@gmail.com', password: 'helloworld', password_confirmation: 'helloworld')
 u.skip_confirmation!
 u.save
 u.update_attribute(:role, 'admin')
