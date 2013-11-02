@@ -3,11 +3,13 @@ class PostsController < ApplicationController
 
   def show
     @topic = Topic.find(params[:topic_id])
+    authorize! :read, @topic, message: "You need to be signed-in to do that."
     @post = Post.find(params[:id])#find is an AR method that takes an id attribute
     #as an argument. Rails has a params hash that is passed around on every request
     #rem params is a hash, thats why you can extract a value by specifying the key 
     # key: id , in this case
     @comments = @post.comments
+    @comment = Comment.new
 
   end
 
