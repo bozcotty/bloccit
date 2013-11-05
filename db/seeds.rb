@@ -39,7 +39,7 @@ end
 User.all.each do |u|
   rand(10..20).times do
     p = Post.find(rand(1..Post.count))
-    c = u.comments.create(
+    c = u.comments.new(
       body: Faker::Lorem.paragraphs(rand(1..2)).join("\n"))
     c.post = p
     c.update_attribute(:created_at, Time.now - rand(600..31536000))
