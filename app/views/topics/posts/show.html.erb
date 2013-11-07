@@ -55,14 +55,16 @@
 <!-- endof show comments -->
 
 
-  <% if can? :create, Comment %>
-      <%#= link_to "New Comment", new_topic_post_comment_path(@topic, @post), class: 'btn btn-large btn-block' %>
-    <div class="span4">
-      <p>New Comment</p>
-    </div>
-    <br>
-    <%= render partial: "comments/form", locals: { topic: @topic,post: @post, comment: Comment.new } %>
-   <% end  %>
+ <% if can? :create, Comment %>
+  <hr/>
+
+  <a href="#" class="js-show-hide" data-selector="js-new-comment">Add Comment</a>
+  <br/>
+  <div class="js-new-comment hide">
+    <h4>New Comment</h4>
+    <%= render partial: 'comments/form', locals: { topic: @topic, post: @post, comment: @comment } %>
+  </div>
+<% end %>
 
 
 
