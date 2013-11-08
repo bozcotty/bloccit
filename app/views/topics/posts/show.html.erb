@@ -40,9 +40,7 @@
 <!-- show comments listed under the post -->
 <!-- styles 'from' show topics -->
 
-<%# @comments.each do |comment| %>
-  <%#= render partial: 'comments/comment', local: {comment: comment} %>
-<%# end %>
+
 <hr/>
 
 <h2 class='js-comments-count'><%= @comments.count %> Comments</h2>
@@ -50,11 +48,7 @@
   <%= render partial: 'comments/comment', collection: @comments %>
 <% end %>
 
-<%#= render partial: 'comments/comment', collection: @comments %>
 
-<%#= render @comments %>
-
-<!-- endof show comments -->
 
 
  <% if can? :create, Comment %>
