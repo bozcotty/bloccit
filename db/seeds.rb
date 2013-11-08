@@ -33,7 +33,7 @@ end
     end
 end
 
-User.each do |u|
+User.all.each do |u|
   rand(10..20).times do
     p = Post.find(rand(1..Post.count))
     c = u.comments.new(
