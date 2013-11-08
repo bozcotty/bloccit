@@ -16,11 +16,11 @@
 //= require_tree .
 
 $(document).ready(function() {
-  $(".hero-unit").fadeOut(16000, "swing");
+  $(".hero-unit").fadeIn(3000, "swing");
 });
 
 $(document).ready(function() {
-  $("button").click(function(){
+  $("h1").click(function(){
   $(".toggle-popular").toggle();
   });
 });
