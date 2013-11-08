@@ -16,7 +16,13 @@
 //= require_tree .
 
 $(document).ready(function() {
-  $(".hero-unit").slideUp();
+  $(".hero-unit").fadeOut(16000, "swing");
+});
+
+$(document).ready(function() {
+  $("button").click(function(){
+  $(".toggle-popular").toggle();
+  });
 });
 
 $(document).ready(function() {

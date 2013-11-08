@@ -43,7 +43,9 @@
 <%# @comments.each do |comment| %>
   <%#= render partial: 'comments/comment', local: {comment: comment} %>
 <%# end %>
+<hr/>
 
+<h2 class='js-comments-count'><%= @comments.count %> Comments</h2>
 <% @comments.each do |comment| %>
   <%= render partial: 'comments/comment', collection: @comments %>
 <% end %>

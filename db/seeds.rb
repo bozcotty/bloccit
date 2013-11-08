@@ -30,13 +30,10 @@ end
 
     p.update_rank
     topics.rotate! #add this line to move the first topic to the last, so that posts get assigned to different topics
-
-
-    
-  end
+    end
 end
 
-User.all.each do |u|
+User.each do |u|
   rand(10..20).times do
     p = Post.find(rand(1..Post.count))
     c = u.comments.new(
