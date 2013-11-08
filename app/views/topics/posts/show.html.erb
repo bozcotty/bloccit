@@ -44,12 +44,10 @@
 <hr/>
 
 <h2 class='js-comments-count'><%= @comments.count %> Comments</h2>
-<% @comments.each do |comment| %>
+
+<div class="js-comments">
   <%= render partial: 'comments/comment', collection: @comments %>
-<% end %>
-
-
-
+</div>
 
  <% if can? :create, Comment %>
   <hr/>
